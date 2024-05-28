@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .welcome-section {
+            background-image: url('https://images.unsplash.com/photo-1518933165971-611dbc9c412d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&h=600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+
+            .welcome-section h1 {
+                font-size: 3.5rem;
+                font-weight: 700;
+            }
+
+            .welcome-section p {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .welcome-section a {
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+
+        .features-section {
+            padding: 50px 0;
+        }
+
+            .features-section .card {
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            }
+
+                .features-section .card:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-section text-center">
+        <div class="container">
+            <h1 class="display-4">Bienvenido a la Biblioteca Universitaria</h1>
+            <p>Descubre y comparte publicaciones académicas.</p>
+            <a href="/Publicaciones" class="btn btn-primary btn-lg">Ver Publicaciones</a>
+        </div>
+    </div>
+
+    <div class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmlibGlvdGVjYXN8ZW58MHx8MHx8fDA%3D" class="card-img-top" alt="Publicaciones Recientes">
+                        <div class="card-body">
+                            <h5 class="card-title">Publicaciones Recientes</h5>
+                            <p class="card-text">Explora las publicaciones más recientes de nuestra comunidad académica.</p>
+                            <a href="/Publicaciones/Recientes" class="btn btn-outline-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9uZG8lMjBkZSUyMGxhJTIwYmlibGlvdGVjYXxlbnwwfHwwfHx8MA%3D%3D" class="card-img-top" alt="Autores Destacados">
+                        <div class="card-body">
+                            <h5 class="card-title">Autores Destacados</h5>
+                            <p class="card-text">Conoce a los autores más influyentes de nuestra universidad.</p>
+                            <a href="/Autores/Destacados" class="btn btn-outline-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="https://cdn1.matadornetwork.com/blogs/2/2019/09/bibliotecas-antiguas.jpg" class="card-img-top" alt="Colabora">
+                        <div class="card-body">
+                            <h5 class="card-title">Colabora</h5>
+                            <p class="card-text">Únete a proyectos de investigación y comparte tus conocimientos.</p>
+                            <a href="/Colaborar" class="btn btn-outline-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Biblioteca Universitaria. Todos los derechos reservados.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
