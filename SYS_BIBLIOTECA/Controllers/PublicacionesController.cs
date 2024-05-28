@@ -160,4 +160,51 @@ namespace SYS_BIBLIOTECA.Controllers
             return _context.Publicaciones.Any(e => e.Id == id);
         }
     }
+    [Route("api/Publicaciones")]
+    [ApiController]
+    public class PublicacionesAPIController : ControllerBase
+    {
+        private readonly BibliotecaUniversitariaContext _context;
+
+        public PublicacionesAPIController(BibliotecaUniversitariaContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/Publicaciones
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Publicacione>>> GetPublicaciones()
+        {
+            return await _context.Publicaciones.ToListAsync();
+        }
+
+        // GET: api/Publicaciones/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Publicacione>> GetPublicacion(int id)
+        {
+            var publicacione = await _context.Publicaciones.FindAsync(id);
+
+            if (publicacione == null)
+            {
+                return NotFound();
+            }
+
+            return publicacione;
+        }
+
+        // POST: api/Publicaciones
+        [HttpPost]
+        public async Task<ActionResult<Publicacione>> PostPublicacion(Publicacione publicacione)
+        {
+            _context.Publicaciones.Add(publicacione);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetPublicacion", new { id = publicacione.Id }, publicacione);
+        }
+
+        private bool PublicacioneExists(int id)
+        {
+            return _context.Publicaciones.Any(e => e.Id == id);
+        }
+    }
 }

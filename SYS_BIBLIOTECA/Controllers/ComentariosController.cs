@@ -166,4 +166,57 @@ namespace SYS_BIBLIOTECA.Controllers
             return _context.Comentarios.Any(e => e.Id == id);
         }
     }
+    [Route("api/Comentarios")]
+    [ApiController]
+    public class ComentariosAPIController : ControllerBase
+    {
+        private readonly BibliotecaUniversitariaContext _context;
+
+        public ComentariosAPIController(BibliotecaUniversitariaContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/Comentarios
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Comentario>>> GetComentarios()
+        {
+            return await _context.Comentarios.ToListAsync();
+        }
+
+        // GET: api/Comentarios/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Comentario>> GetComentario(int id)
+        {
+            var comentario = await _context.Comentarios.FindAsync(id);
+
+            if (comentario == null)
+            {
+                return NotFound();
+            }
+
+            return comentario;
+        }
+
+        // DELETE: api/Comentarios/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteComentario(int id)
+        {
+            var comentario = await _context.Comentarios.FindAsync(id);
+            if (comentario == null)
+            {
+                return NotFound();
+            }
+
+            _context.Comentarios.Remove(comentario);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool ComentarioExists(int id)
+        {
+            return _context.Comentarios.Any(e => e.Id == id);
+        }
+    }
 }

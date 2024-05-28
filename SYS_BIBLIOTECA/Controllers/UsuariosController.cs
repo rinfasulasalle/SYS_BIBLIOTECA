@@ -153,4 +153,39 @@ namespace SYS_BIBLIOTECA.Controllers
             return _context.Usuarios.Any(e => e.Id == id);
         }
     }
+
+
+    [Route("api/Usuarios")]
+    [ApiController]
+    public class UsuariosAPIController : ControllerBase
+    {
+        private readonly BibliotecaUniversitariaContext _context;
+
+        public UsuariosAPIController(BibliotecaUniversitariaContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/Usuarios
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
+        {
+            return await _context.Usuarios.ToListAsync();
+        }
+
+        // GET: api/UsuariosAPI
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Usuario>> GetUsuario(int id)
+        {
+            var usuario = await _context.Usuarios.FindAsync(id);
+
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            return usuario;
+        }
+      
+    }
 }
